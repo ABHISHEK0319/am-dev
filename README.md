@@ -1,16 +1,81 @@
-# am_dev
+Absolutely! Here's a clean and professional `README.md` file for your **Flutter portfolio project (`am-dev`)**:
 
-A new Flutter project.
+---
 
-## Getting Started
+````markdown
+# 💼 Abhishek Maurya – Flutter Developer Portfolio
 
-This project is a starting point for a Flutter application.
+This is my personal **portfolio website**, built using **Flutter Web**, to showcase my projects, skills, and professional journey as a mobile app developer.
 
-A few resources to get you started if this is your first Flutter project:
+👉 **Live Site:** [https://abhishek0319.github.io/am-dev/](https://abhishek0319.github.io/am-dev/)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🔧 Tech Stack
+- Flutter Web (Dart)
+- Responsive UI
+- GitHub Pages for hosting
+
+---
+
+## 📂 Features
+- ✨ Clean, minimal design
+- 📱 Project showcase with GitHub links
+- 📄 Resume download option
+- 📬 Contact information with icons
+- ⚡ Fully responsive layout
+
+---
+
+## 🚀 Deployment
+
+To deploy this site on GitHub Pages:
+
+```bash
+flutter build web
+````
+
+Then make sure `web/index.html` has this line:
+
+```html
+<base href="/am-dev/">
+```
+
+Then push the `build/web` folder to a `gh-pages` branch:
+
+```bash
+cd build/web
+git init
+git remote add origin https://github.com/ABHISHEK0319/am-dev.git
+git checkout -b gh-pages
+git add .
+git commit -m "Deploy site"
+git push origin gh-pages --force
+```
+
+Enable Pages in your GitHub repo settings:
+**Settings → Pages → Branch: `gh-pages` /root**
+
+---
+
+## 🧑‍💻 Author
+
+**Abhishek Maurya**
+[LinkedIn](https://www.linkedin.com/in/abhishek-maurya-a3452b230) • [GitHub](https://github.com/ABHISHEK0319)
+📧 [abhishekmaurya1219@gmail.com](mailto:abhishekmaurya1219@gmail.com)
+
+---
+
+## 📃 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+```
+
+---
+
+Let me know if you want to:
+- Add badges (Flutter version, deploy status)
+- Include images or screenshots
+- Generate a Hindi version too
+```
