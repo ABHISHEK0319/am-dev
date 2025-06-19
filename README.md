@@ -79,3 +79,7 @@ Let me know if you want to:
 - Include images or screenshots
 - Generate a Hindi version too
 ```
+
+
+![Flutter](https://img.shields.io/badge/Made%20with-Flutter-blue)
+![Status](https://img.shields.io/badge/status-Live-brightgreen)
