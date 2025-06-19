@@ -103,7 +103,7 @@ class _ContactPageState extends State<ContactPage>
           ContactInfo(
             linkedin: 'https://www.linkedin.com/in/abhishek-maurya-a3452b230',
             github: 'https://github.com/ABHISHEK0319?tab=repositories',
-            resumeUrl: 'assets/Abhishek_s_Resume_m.pdf',
+            
           ),
         ],
       ),

@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
+import 'dart:html' as html;
 
 class ContactInfo extends StatelessWidget {
   final String linkedin;
   final String github;
-  final String resumeUrl;
+
 
   const ContactInfo({
     super.key,
     required this.linkedin,
     required this.github,
-    required this.resumeUrl,
+
   });
 
   // General method for launching any url
@@ -76,8 +78,8 @@ class ContactInfo extends StatelessWidget {
                       ),
                     ),
                     IconButton(
-                      icon: const Icon(Icons.copy,
-                          size: 18, color: Colors.blue),
+                      icon:
+                          const Icon(Icons.copy, size: 18, color: Colors.blue),
                       tooltip: 'Copy Email',
                       onPressed: () async {
                         await Clipboard.setData(ClipboardData(
@@ -90,7 +92,7 @@ class ContactInfo extends StatelessWidget {
                     ),
                   ],
                 ),
-            
+
                 Row(
                   children: [
                     const Text(
@@ -101,13 +103,12 @@ class ContactInfo extends StatelessWidget {
                       ),
                     ),
                     IconButton(
-                      icon: const Icon(Icons.link,
-                          size: 18, color: Colors.blue),
+                      icon:
+                          const Icon(Icons.link, size: 18, color: Colors.blue),
                       tooltip: 'Open LinkedIn',
                       onPressed: () async {
                         _launchAnyUrl(context, linkedin);
-                        await Clipboard.setData(
-                            ClipboardData(text: linkedin));
+                        await Clipboard.setData(ClipboardData(text: linkedin));
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
                               content: Text('Clicked LinkedIn link')),
@@ -126,15 +127,14 @@ class ContactInfo extends StatelessWidget {
                       ),
                     ),
                     IconButton(
-                      icon: const Icon(Icons.link,
-                          size: 18, color: Colors.blue),
+                      icon:
+                          const Icon(Icons.link, size: 18, color: Colors.blue),
                       tooltip: 'Open GitHub',
                       onPressed: () async {
                         _launchAnyUrl(context, github);
                         await Clipboard.setData(ClipboardData(text: github));
                         ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                              content: Text('Clicked GitHub link')),
+                          const SnackBar(content: Text('Clicked GitHub link')),
                         );
                       },
                     ),
@@ -147,7 +147,20 @@ class ContactInfo extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 16, vertical: 16),
                   ),
-                  onPressed: () => _launchAnyUrl(context, resumeUrl),
+                  onPressed: () {
+                    const resumeUrl =
+                        'Abhishek_s_Resume_m.pdf'; // web folder ka path
+                    if (kIsWeb) {
+                      // Web: force download
+                      html.AnchorElement anchor = html.AnchorElement(
+                          href: resumeUrl)
+                        ..setAttribute('download', 'Abhishek_s_Resume_m.pdf')
+                        ..click();
+                    } else {
+                      // Mobile/Desktop: open in browser (ya url_launcher ka use karein)
+                      _launchAnyUrl(context, resumeUrl);
+                    }
+                  },
                   child: const Text(
                     '📄 Download Resume',
                     style: TextStyle(color: Colors.white),
